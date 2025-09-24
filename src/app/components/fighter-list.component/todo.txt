@@ -1,0 +1,20 @@
+
+<div class="criterias">
+    
+    <label>Prénom</label>
+    <input type="text" name="first_name" id="">
+    <label>Nom</label>
+    <label>Age</label>
+    <label>Poids(kg)</label>
+    <label>Taille(cm)</label>
+    <label>IMC</label>
+    <label>Catégorie IMC</label>
+    <label>Classe MMA</label>
+    <label>Créé le</label>
+</div>
+
+<div class="operations">
+    <button type="button">+Créer</button>
+    <button type="button">Importer</button>
+    <button type="button">Affichage</button>
+</div>
