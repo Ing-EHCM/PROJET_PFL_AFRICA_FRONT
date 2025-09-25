@@ -1,4 +1,6 @@
-
+<form (ngSubmit) = "store()">
+    <button type="submit"> Store</button>
+</form>
 <div class="fighter-list">
     <table>
         <thead>
@@ -34,10 +36,10 @@
                         <td>{{fighter.created_at}}</td>
                         <td>{{fighter.updated_at}}</td>
                         <td>
-                            <button type="button" class="detail"><i class="fa-display"></i></button>
-                            <button type="button" class="update"><i class="fa-display"></i></button>
-                            <button type="button" class="delete"><i class="fa-display"></i></button>
-                            <button type="button" class="lock"><i class="fa-display"></i></button>
+                            <button type="button" class="detail"><i class="fa-display"></i>A</button>
+                            <button type="button" class="update"><i class="fa-display"></i>M</button>
+                            <button type="button" class="delete" (click)="deleteFighter(fighter.id)"><i class="fa-display"></i>S</button>
+                            <button type="button" class="lock"><i class="fa-display"></i>B</button>
                         </td>
                     </tr>
                 }

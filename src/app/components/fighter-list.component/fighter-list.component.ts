@@ -1,54 +1,55 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IFighter } from '../../models/fighter';
+import {addFighterToStorage, getFightersFromStorage, deleteFighterToStorage} from '../../utils/storage';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FightersService } from '../../services/fighters.service';
 
 @Component({
   selector: 'app-fighter-list-component',
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './fighter-list.component.html',
   styleUrl: './fighter-list.component.css'
 })
-export class FighterListComponent {
-    fighters : IFighter []= [
-        {
-            id : 1,
-            first_name : "SADA",
-            last_name : "MBAYE",
-            age : 38,
-            weight_kg : 80,
-            height_cm : 190,
-            bmi : 40,
-            bmi_category : "kfrhr",
-            mma_weight_class : "dcjiu",
-            created_at : "2025-01-01",
-            updated_at : "2025-01-01"
-        },
+export class FighterListComponent implements OnInit{
 
-        {
-            id : 2,
-            first_name : "SADA",
-            last_name : "MBAYE",
-            age : 38,
-            weight_kg : 80,
-            height_cm : 190,
-            bmi : 40,
-            bmi_category : "kfrhr",
-            mma_weight_class : "dcjiu",
-            created_at : "2025-01-01",
-            updated_at : "2025-01-01"
-        },
+    constructor (private fighterService:FightersService) {}
 
-        {
-            id : 3,
-            first_name : "SADA",
-            last_name : "MBAYE",
-            age : 38,
-            weight_kg : 80,
-            height_cm : 190,
-            bmi : 40,
-            bmi_category : "kfrhr",
-            mma_weight_class : "dcjiu",
-            created_at : "2025-01-01",
-            updated_at : "2025-01-01"
-        }
-    ]
+    ngOnInit(): void {
+        
+    }
+
+    
+
+    fighters : IFighter[] = getFightersFromStorage();
+    // fighters : IFighter [] = [
+    //     {
+    //         id : 4,
+    //         first_name : "IBRAHIMA",
+    //         last_name : "DIA",
+    //         age : 38,
+    //         weight_kg : 80,
+    //         height_cm : 198,
+    //         bmi : 25,
+    //         bmi_category : "Normale",
+    //         mma_weight_class : "LOurd",
+    //         created_at : "2025-01-01",
+    //         updated_at : "2025-01-01"
+    //     }
+    // ]   
+    deleteFighter(id:number) {
+        deleteFighterToStorage(id)
+        console.log("delete")
+    }
+
+    
+    
+    store() {
+        for (let fighter of this.fighters )  
+            addFighterToStorage(fighter);
+    }
 }
+
+
+
+
