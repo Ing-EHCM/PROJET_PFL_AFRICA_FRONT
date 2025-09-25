@@ -13,11 +13,11 @@ export class ListeCombattants {
 
     for (let i = 1; i < rows.length; i++) { 
       const cells = rows[i].getElementsByTagName('td');
-      const firstName = cells[1].innerText.toLowerCase();
-      const lastName = cells[2].innerText.toLowerCase();
-      const bmiCategory = cells[7].innerText.toLowerCase();
+      const Nom = cells[1].innerText.toLowerCase();
+      const Prenom = cells[2].innerText.toLowerCase();
+      const Category = cells[7].innerText.toLowerCase();
 
-      if (firstName.includes(input) || lastName.includes(input) || bmiCategory.includes(input)) {
+      if (Nom.includes(input) || Prenom.includes(input) || Category.includes(input)) {
         rows[i].style.display = '';
       } else {
         rows[i].style.display = 'none';
