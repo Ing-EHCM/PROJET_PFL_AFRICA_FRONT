@@ -1,0 +1,10 @@
+.fighter-list {
+    padding: 15px;
+    margin: 15px;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    display: inline-block;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+}
