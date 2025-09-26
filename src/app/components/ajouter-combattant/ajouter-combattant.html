@@ -1,0 +1,73 @@
+<div class="ajouter-combattant-container">
+  <h1>Ajouter un nouveau combattant</h1>
+  
+  <form (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-group">
+      <label for="nom">Nom :</label>
+      <input 
+        type="text" 
+        id="nom" 
+        [(ngModel)]="nouveauCombattant.nom" 
+        name="nom" 
+        required
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="prenom">Prénom :</label>
+      <input 
+        type="text" 
+        id="prenom" 
+        [(ngModel)]="nouveauCombattant.prenom" 
+        name="prenom" 
+        required
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="age">Âge :</label>
+      <input 
+        type="number" 
+        id="age" 
+        [(ngModel)]="nouveauCombattant.age" 
+        name="age" 
+        required
+        min="1"
+        max="100"
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="poids">Poids (kg) :</label>
+      <input 
+        type="number" 
+        id="poids" 
+        [(ngModel)]="nouveauCombattant.poids" 
+        name="poids" 
+        required
+        min="1"
+        max="200"
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="taille">Taille (cm) :</label>
+      <input 
+        type="number" 
+        id="taille" 
+        [(ngModel)]="nouveauCombattant.taille" 
+        name="taille" 
+        required
+        min="100"
+        max="250"
+        class="form-input"
+      >
+    </div>
+
+    <button type="submit" class="submit-btn">Ajouter le combattant</button>
+  </form>
+</div>
