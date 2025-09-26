@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IFighter } from '../models/fighter';
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,16 @@ export class FightersService {
 
     constructor (private http:HttpClient) {}
 
-    fetchFighters (): Observable<any []> {
-      return this.http.get<any []> (this.apiUrl);
+    fetchFighters (): Observable<IFighter []> {
+      return this.http.get<IFighter []> (this.apiUrl);
     }
 
-    createFighter (fighter:any) {
+    createFighter (fighter:IFighter) {
       const headers = new HttpHeaders({'content-type':'application/json'});
-      return this.http.post<any []>(this.apiUrl,fighter,{headers});
+      return this.http.post<IFighter []>(this.apiUrl,fighter,{headers});
     }
 
-    deleteFighter (fighterId:any) {
-      return this.http.delete<any []>(`${this.apiUrl}/${fighterId}`)
+    deleteFighter (fighterId:string) {
+      return this.http.delete<IFighter []>(`${this.apiUrl}/${fighterId}`)
     }
 }

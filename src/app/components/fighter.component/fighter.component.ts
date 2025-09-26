@@ -35,44 +35,64 @@ export class FighterComponent implements OnInit {
     }
 
     fetchFighters () {
-        this.fighterService.fetchFighters()
-            .subscribe(
-              (response) => {
-                this.fighters = response;
-              },
-              (error) => {
-                console.error(error)
-              }
-            );
+        this.fighterService.fetchFighters().subscribe({
+                next: (fighters) => {
+                    this.fighters = fighters;
+                },
+                error : (error) => {
+                    console.error(error);
+                },
+                complete : () => {
+                    console.log(`Récupérations terminéees`);
+                    
+                }
+        });
     }
+              
+    
 
     createFighter () {
-        this.fighterService.createFighter(this.newFighter)
-          .subscribe(
-              (response) => {
+        this.fighterService.createFighter(this.newFighter).subscribe({
+
+            next : (response) => {
                   console.log(`Combattant enregistré avec succès, ${response}`);
                   // Rafraisir les données 
                   this.fetchFighters();
-              },
-              (error) => {
-                  console.error(`Une erreur est survenue lors de l'enregistrement ${error}`);
-              }
+            },
 
-          );
-    }
+            error : (error) => {
+                console.error(`Une erreur est survenue ${error}`);
+            },
 
-    deleteFighter (fighterId:number) {
-        this.fighterService.deleteFighter(fighterId)
-          .subscribe(
-              ()=> {
-                  console.log(`combattant supprimé`);
-                  this.fetchFighters()
-              },
-              (error) => {
-                  console.error(`Erreur de suppression ${error}`);
+            complete : () => {
+                console.log(`Entregistrement terminé`);
+                
+            }
                   
-              },
+        });
+    }
               
-          );
+    
+
+    deleteFighter (fighterId:string) {
+        this.fighterService.deleteFighter(fighterId).subscribe({
+            
+            next : (fighterId)=> {
+                  console.log(`combattant supprimé ${fighterId}`);
+                  this.fetchFighters()
+            },
+
+            error : (error) => {
+                  console.error(`Erreur de suppression ${error}`);
+            },
+
+            complete() {
+                console.log(`Suppression terminée`);
+                
+            }
+
+        });
+          
+              
     }
 }
