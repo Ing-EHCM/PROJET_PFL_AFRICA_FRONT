@@ -2,8 +2,8 @@
 export interface IFighter {
 
     id : number;
-    first_name : string;
-    last_name : string;
+    FirstName : string;
+    LastName : string;
     age : number;
     weight_kg : number;
     height_cm : number;

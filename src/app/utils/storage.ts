@@ -18,12 +18,11 @@ export function deleteFighterToStorage (id:number):void {
 
     if (localStorage.getItem("fighters_db"))
         localStorage.removeItem("fighters_db");
-    for (let fighter of fightersStorage) {
+    for (let fighter of fightersStorage) 
         addFighterToStorage(fighter)
-    }
 }
 
-export function updateFighterInStorage(id: number) : void {
-    const fighters:IFighter [] = getFightersFromStorage();
+export function updateFighterInStorage(id: number, newFighter: IFighter) : void {
+    
     
 }

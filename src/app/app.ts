@@ -1,10 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FighterListComponent } from "./components/fighter-list.component/fighter-list.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FighterListComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
