@@ -43,3 +43,60 @@ th {
 tr:hover {
   background-color: #f1f1f1;
 }
+
+/* Boutons */
+.btn {
+  position: relative;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+/* Infobulle au survol */
+.btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%; /* au-dessus du bouton */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Affichage au survol */
+.btn:hover::after,
+.btn:hover::before {
+  opacity: 1;
+}
+
+/* Styles spécifiques des boutons */
+.btn.edit {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn.edit:hover {
+  background-color: #218838;
+}
+
+.btn.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn.delete:hover {
+  background-color: #c82333;
+}
+
+
