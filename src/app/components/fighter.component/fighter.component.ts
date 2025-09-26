@@ -13,17 +13,17 @@ export class FighterComponent implements OnInit {
     fighters:IFighter [] = [];
 
     newFighter : IFighter = {
-        id : 1,
-        FirstName : "SADA",
-        LastName : "DIA",
-        age : 30,
-        weight : 80,
-        height : 198,
-        BMI : 40,
-        BMI_Category : "Normale",
-        MMA_Weight_class : "Lourd",
-        created_at : "2025-01-01",
-        updated_at : "2025-01-01"
+        id : 0,
+        FirstName : "",
+        LastName : "",
+        age : 0,
+        weight : 0,
+        height : 0,
+        BMI : 0,
+        BMI_Category : "",
+        MMA_Weight_class : "",
+        created_at : "",
+        updated_at : ""
     }
 
     constructor (private fighterService : FightersService) {}

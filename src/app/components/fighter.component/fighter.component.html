@@ -1,1 +1,13 @@
-<p>fighter.component works!</p>
+
+
+<table>
+    @for(fighter of fighters; track fighter.id) {
+        <tr>
+            <td>{{fighter.id}}</td>
+            <td>{{fighter.FirstName}}</td>
+            <td>{{fighter.LastName}}</td>
+
+        </tr>
+        
+    }
+</table>
