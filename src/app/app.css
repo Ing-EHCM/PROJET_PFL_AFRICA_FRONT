@@ -1,0 +1,15 @@
+main {
+  display: flex;
+  min-height: 100vh; /* occupe toute la hauteur */
+}
+
+app-sidebar {
+  width: 220px;
+  flex-shrink: 0; /* empêche la sidebar de se rétrécir */
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background: #f5f5f5; /* fond clair pour le contenu */
+}
