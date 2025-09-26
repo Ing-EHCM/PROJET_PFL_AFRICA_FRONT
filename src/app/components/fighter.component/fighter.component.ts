@@ -12,12 +12,26 @@ export class FighterComponent implements OnInit {
   
     fighters:IFighter [] = [];
 
+    newFighter : IFighter = {
+        id : 1,
+        FirstName : "SADA",
+        LastName : "DIA",
+        age : 30,
+        weight : 80,
+        height : 198,
+        BMI : 40,
+        BMI_Category : "Normale",
+        MMA_Weight_class : "Lourd",
+        created_at : "2025-01-01",
+        updated_at : "2025-01-01"
+    }
+
     constructor (private fighterService : FightersService) {}
 
 
 
     ngOnInit(): void {
-        this.fetchFighters();
+        this.fetchFighters()
     }
 
     fetchFighters () {
@@ -32,4 +46,32 @@ export class FighterComponent implements OnInit {
             );
     }
 
+    createFighter () {
+        this.fighterService.createFighter(this.newFighter)
+          .subscribe(
+              (response) => {
+                  console.log(`Combattant enregistré avec succès, ${response}`);
+                  // Rafraisir les données 
+                  this.fetchFighters();
+              },
+              (error) => {
+                  console.error(`Une erreur est survenue lors de l'enregistrement ${error}`);
+              }
+
+          );
+    }
+
+    deleteFighter (fighterId:number) {
+        this.fighterService.deleteFighter(fighterId)
+          .subscribe(
+              ()=> {
+                  console.log(`combattant supprimé`);
+                  this.fetchFighters()
+              },
+              (error) => {
+                  console.error(`Erreur de suppression ${error}`);
+                  
+              }
+          );
+    }
 }
