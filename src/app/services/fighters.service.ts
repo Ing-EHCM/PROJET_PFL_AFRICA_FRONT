@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FightersService {
     
-    private apiUrl = 'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
+    private apiUrl = 'https://crudcrud.com/api/fighter' //'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
 
     constructor (private http:HttpClient) {}
 
@@ -20,7 +20,7 @@ export class FightersService {
       return this.http.post<any []>(this.apiUrl,fighter,{headers});
     }
 
-    deleteFighter (fighterId:number) {
+    deleteFighter (fighterId:any) {
       return this.http.delete<any []>(`${this.apiUrl}/${fighterId}`)
     }
 }

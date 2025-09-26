@@ -71,7 +71,8 @@ export class FighterComponent implements OnInit {
               (error) => {
                   console.error(`Erreur de suppression ${error}`);
                   
-              }
+              },
+              
           );
     }
 }
