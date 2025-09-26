@@ -19,6 +19,7 @@ h1 {
   font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  width: 300px;
 }
 
 table {
@@ -42,4 +43,53 @@ th {
 
 tr:hover {
   background-color: #f1f1f1;
+}
+
+/* Styles pour la colonne Actions */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px !important;
+}
+
+.actions button {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  min-width: 40px;
+}
+
+.actions button:hover {
+  transform: scale(1.1);
+}
+
+.btn-view {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.btn-view:hover {
+  background-color: #138496;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: black;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
 }

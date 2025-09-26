@@ -1,7 +1,6 @@
-
-
-<main class="main">
-  <app-liste-combattants></app-liste-combattants>
-</main>
-
-<router-outlet />
+<div style="display: flex">
+  <app-sidebar></app-sidebar>
+  <div style="margin-left: 240px; padding: 20px; width: 100%">
+    <router-outlet></router-outlet>
+  </div>
+</div>
