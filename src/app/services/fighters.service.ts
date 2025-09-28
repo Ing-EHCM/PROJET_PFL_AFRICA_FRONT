@@ -8,7 +8,7 @@ import { IFighter } from '../models/fighter';
 })
 export class FightersService {
     
-    private apiUrl = 'https://crudcrud.com/api/fighter' //'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
+    private apiUrl = 'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
 
     constructor (private http:HttpClient) {}
 
