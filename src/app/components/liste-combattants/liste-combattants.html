@@ -20,34 +20,51 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>Paul Barrè</td>
-        <td>Beavogui</td>
-        <td>20 ans</td>
-        <td>75</td>
-        <td>180</td>
-        <td></td>
-        <td></td>
-        <td></td>
+      <tr *ngFor="let figther of figthers">
+        <td>{{ figther.id }}</td>
+        <td>{{ figther.FirstName }}</td>
+        <td>{{ figther.LastName }}</td>
+        <td>{{ figther.age }}</td>
+        <td>{{ figther.weight }}</td>
+        <td>{{ figther.height }}</td>
+        <td>{{ figther.BMI }}</td>
+        <td>{{ figther.BMI_Category }}</td>
+        <td>{{ figther.MMA_Weight_class }}</td>
         <td>
-          <button type="button" class="btn edit" data-tooltip="Éditer">✏️</button>
-          <button type="button" class="btn delete" data-tooltip="Supprimer">🗑️</button>
+          <button type="button" class="btn edit" data-tooltip="Éditer" (click)="ouvrirModal(figther)">✏️</button>
+          <button type="button" class="btn delete" data-tooltip="Supprimer" (click)="supprimer(figther.id)">🗑️</button>
       </td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Marie</td>
-        <td>Sia Diawara</td>
-        <td>25ans</td>
-        <td>60</td>
-        <td>170</td>
-        <td></td>
-        <td></td>
-        <td></td>
       </tr>
     </tbody>
   </table>
+
+  <!-- MODALE D'ÉDITION -->
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>Modifier le combattant</h2>
+
+    <label>Id :</label>
+    <input type="number" [(ngModel)]="combattantEnEdition.id" />
+    <label>Nom :</label>
+    <input type="text" [(ngModel)]="combattantEnEdition.FirstName" />
+
+    <label>Prénom :</label>
+    <input type="text" [(ngModel)]="combattantEnEdition.LastName" />
+
+    <label>Âge :</label>
+    <input type="number" [(ngModel)]="combattantEnEdition.age" />
+
+    <label>Poids (kg) :</label>
+    <input type="number" [(ngModel)]="combattantEnEdition.weight" />
+
+    <label>Taille (cm) :</label>
+    <input type="number" [(ngModel)]="combattantEnEdition.height" />
+
+    <div class="modal-actions">
+      <button class="btn save" (click)="enregistrer()">💾 Enregistrer</button>
+      <button class="btn cancel" (click)="showModal = false">❌ Annuler</button>
+    </div>
+  </div>
 
 </div>
 </div>
