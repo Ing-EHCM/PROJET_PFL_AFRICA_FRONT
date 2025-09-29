@@ -24,4 +24,8 @@ export class FightersService {
     deleteFighter (fighterId:string) {
       return this.http.delete<IFighter []>(`${this.apiUrl}/${fighterId}`)
     }
+
+    updateFighter (fighter:IFighter) {
+      
+    }
 }

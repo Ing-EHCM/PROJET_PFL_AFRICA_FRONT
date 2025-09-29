@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FightersService } from '../../services/fighters.service';
 
 @Component({
   selector: 'app-liste-combattants',
   templateUrl: './liste-combattants.html',
   styleUrls: ['./liste-combattants.css'] 
 })
-export class ListeCombattants {
+export class ListeCombattants implements OnInit{
+
+
+  constructor (private fightersService : FightersService) {}
+
+  ngOnInit(): void {
+      this.fetchFighters();
+  }
+
+  fetchFighters () {
+      this.fightersService.fetchFighters()
+  }
+
+  deleteFighter () {
+
+  }
+
   filterTable(event: Event) {
     const input = (event.target as HTMLInputElement).value.toLowerCase();
     const table = document.getElementById('userTable') as HTMLTableElement;
