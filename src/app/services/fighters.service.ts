@@ -7,9 +7,11 @@ import { IFighter } from '../models/fighter';
   providedIn: 'root'
 })
 export class FightersService {
-    
+
+    // Déclaration de l'url de l'API
     private apiUrl = 'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
 
+    // Constructeur qui sera appelé à l'instanciation du service et qui va 
     constructor (private http:HttpClient) {}
 
     fetchFighters (): Observable<IFighter []> {
