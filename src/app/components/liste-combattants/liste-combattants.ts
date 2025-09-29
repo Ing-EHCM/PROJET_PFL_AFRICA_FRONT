@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IFighter } from '../../models/fighter';
-import { FightersService } from '../../services/fighters.service';
 
 @Component({
   selector: 'app-liste-combattants',
@@ -14,10 +13,9 @@ import { FightersService } from '../../services/fighters.service';
 
 export class ListeCombattants implements OnInit{
 
-  // figthers:IFighter[]=[];
-    constructor (private figtherService : FightersService){
+  
 
-    }
+    
     ngOnInit(): void {
         
     }
@@ -88,17 +86,5 @@ export class ListeCombattants implements OnInit{
     this.showModal = false;
   }
 
-  // Supprimer un combattant
-  supprimer(id: number) {
-    if (confirm("Êtes-vous sûr de vouloir supprimer ce combattant ?")) {
-      this.figthers = this.figthers.filter(c => c.id !== id);
-    }
-    this.figtherService.deleteFighter(id).subscribe({
-
-      next:(id)=>{
-        console.log(`combattant supprimé ${id}`);
-      }
-
-    });
-  }
+ 
 }
