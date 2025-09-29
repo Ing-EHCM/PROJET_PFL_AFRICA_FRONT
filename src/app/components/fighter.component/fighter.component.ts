@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IFighter } from '../../models/fighter';
 import { FightersService } from '../../services/fighters.service';
+import {toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-fighter.component',
@@ -36,14 +37,14 @@ export class FighterComponent implements OnInit {
 
     fetchFighters () {
         this.fighterService.fetchFighters().subscribe({
-                next: (fighters) => {
-                    this.fighters = fighters;
+                next: (reponse) => {
+                    this.fighters = reponse;
                 },
                 error : (error) => {
-                    console.error(error);
+                    toast.error(`Réucpération a échouer`);
                 },
                 complete : () => {
-                    console.log(`Récupérations terminéees`);
+                    toast.success(`Récupérations terminées avec succès`);
                     
                 }
         });

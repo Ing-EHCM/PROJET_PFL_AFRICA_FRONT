@@ -34,7 +34,7 @@ export class ListeCombattants implements OnInit{
       created_at : "",
       updated_at : "",
     }
-    figther
+   
   // Tableau de combattants
   figthers :IFighter[]= [
     { id: 1, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
@@ -97,7 +97,6 @@ export class ListeCombattants implements OnInit{
 
       next:(id)=>{
         console.log(`combattant supprimé ${id}`);
-        this.fetchFighters();
       }
 
     });
