@@ -1,72 +1,128 @@
 <div class="ajouter-combattant-container">
   <h1>Ajouter un nouveau combattant</h1>
-  
+
   <form (ngSubmit)="onSubmit()" class="form-container">
+    @if (nouveauCombattant.id !=0) {
     <div class="form-group">
-      <label for="nom">Nom :</label>
-      <input 
-        type="text" 
-        id="nom" 
-        [(ngModel)]="nouveauCombattant.nom" 
-        name="nom" 
+      <label for="id">id :</label>
+      <input
+        type="number"
+        id="id"
+        disabled
+        [(ngModel)]="nouveauCombattant.id"
+        name="id"
         required
         class="form-input"
-      >
+      />
+    </div>
+    }
+
+    <div class="form-group">
+      <label for="firstName">FirstName :</label>
+      <input
+        type="text"
+        id="firstName"
+        [(ngModel)]="nouveauCombattant.FirstName"
+        name="firstName"
+        required
+        class="form-input"
+      />
     </div>
 
     <div class="form-group">
-      <label for="prenom">Prénom :</label>
-      <input 
-        type="text" 
-        id="prenom" 
-        [(ngModel)]="nouveauCombattant.prenom" 
-        name="prenom" 
+      <label for="LastName">LastName :</label>
+      <input
+        type="text"
+        id="LastName"
+        [(ngModel)]="nouveauCombattant.LastName"
+        name="LastName"
         required
         class="form-input"
-      >
+      />
     </div>
 
     <div class="form-group">
-      <label for="age">Âge :</label>
-      <input 
-        type="number" 
-        id="age" 
-        [(ngModel)]="nouveauCombattant.age" 
-        name="age" 
+      <label for="age">Age :</label>
+      <input
+        type="number"
+        id="age"
+        [(ngModel)]="nouveauCombattant.age"
+        name="age"
         required
         min="1"
         max="100"
         class="form-input"
-      >
+      />
     </div>
 
     <div class="form-group">
-      <label for="poids">Poids (kg) :</label>
-      <input 
-        type="number" 
-        id="poids" 
-        [(ngModel)]="nouveauCombattant.poids" 
-        name="poids" 
+      <label for="weight">weight :</label>
+      <input
+        type="number"
+        id="weight"
+        [(ngModel)]="nouveauCombattant.weight"
+        name="weight"
         required
         min="1"
         max="200"
         class="form-input"
-      >
+      />
     </div>
 
     <div class="form-group">
-      <label for="taille">Taille (cm) :</label>
-      <input 
-        type="number" 
-        id="taille" 
-        [(ngModel)]="nouveauCombattant.taille" 
-        name="taille" 
+      <label for="height">height :</label>
+      <input
+        type="number"
+        id="height"
+        [(ngModel)]="nouveauCombattant.height"
+        name="height"
         required
         min="100"
         max="250"
         class="form-input"
-      >
+      />
     </div>
+
+    @if (nouveauCombattant.id !=0) {
+    <div class="form-group">
+      <label for="bmi">BMI :</label>
+      <input
+        type="number"
+        id="bmi"
+        disabled
+        [(ngModel)]="nouveauCombattant.BMI"
+        name="bmi"
+        required
+        class="form-input"
+      />
+    </div>
+    } @if (nouveauCombattant.id !=0) {
+    <div class="form-group">
+      <label for="BMI_Category">BMI Category :</label>
+      <input
+        type="text"
+        id="BMI_Category"
+        disabled
+        [(ngModel)]="nouveauCombattant.BMI_Category"
+        name="BMI_Category"
+        required
+        class="form-input"
+      />
+    </div>
+    } @if (nouveauCombattant.id !=0) {
+    <div class="form-group">
+      <label for="MMA_Weight_class">MMA_Weight_class :</label>
+      <input
+        type="text"
+        id="MMA_Weight_class"
+        disabled
+        [(ngModel)]="nouveauCombattant.MMA_Weight_class"
+        name="MMA_Weight_class"
+        required
+        class="form-input"
+      />
+    </div>
+    }
 
     <button type="submit" class="submit-btn">Ajouter le combattant</button>
   </form>

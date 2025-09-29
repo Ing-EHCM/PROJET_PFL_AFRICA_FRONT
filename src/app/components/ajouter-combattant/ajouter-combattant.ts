@@ -11,12 +11,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class AjouterCombattant {
   nouveauCombattant = {
-    nom: '',
-    prenom: '',
-    age: 0,
-    poids: 0,
-    taille: 0
+    id :0,
+    FirstName : '',
+    LastName : '',
+    age : 0,
+    weight : 0,
+    height : 0,
+    BMI :0,
+    BMI_Category :'',
+    MMA_Weight_class :''
+
   };
+
 
   onSubmit() {
     console.log('Nouveau combattant:', this.nouveauCombattant);
@@ -25,11 +31,15 @@ export class AjouterCombattant {
     
     // Réinitialiser le formulaire
     this.nouveauCombattant = {
-      nom: '',
-      prenom: '',
+      id : 0,
+      FirstName : '',
+      LastName : '',
       age: 0,
-      poids: 0,
-      taille: 0
+      weight : 0,
+      height : 0,
+      BMI : 0,
+      BMI_Category :'',
+      MMA_Weight_class :''      
     };
   }
 }
