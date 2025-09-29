@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IFighter } from '../../models/fighter';
+import { FightersService } from '../../services/fighters.service';
 
 @Component({
   selector: 'app-liste-combattants',
@@ -10,8 +11,16 @@ import { IFighter } from '../../models/fighter';
   templateUrl: './liste-combattants.html',
   styleUrls: ['./liste-combattants.css']
 })
-export class ListeCombattants {
-    // figthers:IFighter[]=[];
+
+export class ListeCombattants implements OnInit{
+
+  // figthers:IFighter[]=[];
+    constructor (private figtherService : FightersService){
+
+    }
+    ngOnInit(): void {
+        
+    }
     figther:IFighter={
       id : 0,
       FirstName : "",
@@ -25,7 +34,7 @@ export class ListeCombattants {
       created_at : "",
       updated_at : "",
     }
-    
+   
   // Tableau de combattants
   figthers :IFighter[]= [
     { id: 1, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
@@ -84,5 +93,12 @@ export class ListeCombattants {
     if (confirm("Êtes-vous sûr de vouloir supprimer ce combattant ?")) {
       this.figthers = this.figthers.filter(c => c.id !== id);
     }
+    this.figtherService.deleteFighter(id).subscribe({
+
+      next:(id)=>{
+        console.log(`combattant supprimé ${id}`);
+      }
+
+    });
   }
 }
