@@ -16,12 +16,20 @@ export class FightersService {
       return this.http.get<IFighter []> (this.apiUrl);
     }
 
-    createFighter (fighter:IFighter) {
+    getFighter (fighterId:number |string): Observable<IFighter> {
+        return this.http.get<IFighter>(`${this.apiUrl}/${fighterId}`)
+    }
+
+    createFighter (fighter:IFighter):Observable<any> {
       const headers = new HttpHeaders({'content-type':'application/json'});
       return this.http.post<IFighter []>(this.apiUrl,fighter,{headers});
     }
 
-    deleteFighter (fighterId:string) {
+    deleteFighter (fighterId:string|number):Observable<any> {
       return this.http.delete<IFighter []>(`${this.apiUrl}/${fighterId}`)
+    }
+
+    updateFighter (fighterId:string | number, fighter:IFighter):Observable<any> {
+        return this.http.put<IFighter>(`${this.apiUrl}/${fighterId}`, fighter)
     }
 }
