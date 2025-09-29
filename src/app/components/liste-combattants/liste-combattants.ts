@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IFighter } from '../../models/fighter';
@@ -11,14 +11,9 @@ import { IFighter } from '../../models/fighter';
   styleUrls: ['./liste-combattants.css']
 })
 
-export class ListeCombattants implements OnInit{
-
-  
-
+export class ListeCombattants {
     
-    ngOnInit(): void {
-        
-    }
+    
     figther:IFighter={
       id : 0,
       FirstName : "",
