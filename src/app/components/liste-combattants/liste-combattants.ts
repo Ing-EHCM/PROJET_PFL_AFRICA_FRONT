@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IFighter } from '../../models/fighter';
+import { FightersService } from '../../services/fighters.service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-liste-combattants',
@@ -11,9 +13,77 @@ import { IFighter } from '../../models/fighter';
   styleUrls: ['./liste-combattants.css']
 })
 
-export class ListeCombattants {
+export class ListeCombattants implements OnInit{
     
+  // Tableau de combattants
+  fighters :IFighter[]= [
+    // { id: 1, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
+    // { id: 2, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
+    // { id: 3, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
+    // { id: 4, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
+    // { id: 5, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"}
     
+  ];
+figthers: any;
+    constructor(private fighterService:FightersService) {}
+
+    ngOnInit(): void {
+        this.fetchFighters()
+    }
+
+    //Récupération des données à partir de l'API
+    fetchFighters() {
+        this.fighterService.fetchFighters().subscribe({
+            next: (response)=> {
+                this.fighters = response
+
+            },
+
+            error : (error) => {
+                toast.error(`Réucpération a échouer ${error}`);
+            },
+            complete : () => {
+                toast.success(`Récupérations terminées avec succès`);
+                
+            }
+        });
+    }
+
+    getFighterById(id:string | number) {
+        this.fighterService.getFighterById(id).subscribe({
+            next : (response) => {
+                this.fighters = [];
+                this.fighters.push(response);
+            },
+
+            error: (error) => {
+                toast.error(`Une erreur est survenue : ${error}`);
+            },
+
+            complete : () => {
+                toast.success(`Requête terminée avec succès`);
+            }
+        });
+    }
+
+    deleteFighter (id:number | string) {
+        this.fighterService.deleteFighter(id).subscribe ({
+            next : (response) => {
+                toast.success(`${response} supprimé avec succès`)
+            },
+
+            error : (erreur) => {
+                toast.success(`Une erreur s'est produite lors de la suppression. ${erreur}`)
+
+            },
+
+            complete() {
+                toast.success(`Opération terminée avec succès`)
+
+            },
+        })
+    }
+
     figther:IFighter={
       id : 0,
       FirstName : "",
@@ -28,15 +98,7 @@ export class ListeCombattants {
       updated_at : "",
     }
    
-  // Tableau de combattants
-  figthers :IFighter[]= [
-    { id: 1, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
-    { id: 2, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
-    { id: 3, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
-    { id: 4, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"},
-    { id: 5, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"}
-    
-  ];
+  
 
   // Données pour la modale
   showModal = false;
@@ -74,9 +136,9 @@ export class ListeCombattants {
 
   // Enregistrer les modifications
   enregistrer() {
-    const index = this.figthers.findIndex(c => c.id === this.combattantEnEdition.id);
+    const index = this.fighters.findIndex(c => c.id === this.combattantEnEdition.id);
     if (index !== -1) {
-      this.figthers[index] = { ...this.combattantEnEdition };
+      this.fighters[index] = { ...this.combattantEnEdition };
     }
     this.showModal = false;
   }
