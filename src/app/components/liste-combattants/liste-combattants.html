@@ -20,16 +20,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let figther of figthers">
-        <td>{{ figther.id }}</td>
-        <td>{{ figther.FirstName }}</td>
-        <td>{{ figther.LastName }}</td>
-        <td>{{ figther.age }}</td>
-        <td>{{ figther.weight }}</td>
-        <td>{{ figther.height }}</td>
-        <td>{{ figther.BMI }}</td>
-        <td>{{ figther.BMI_Category }}</td>
-        <td>{{ figther.MMA_Weight_class }}</td>
+      <tr *ngFor="let fighter of fighters">
+        <td>{{ fighter.id }}</td>
+        <td>{{ fighter.FirstName }}</td>
+        <td>{{ fighter.LastName }}</td>
+        <td>{{ fighter.age }}</td>
+        <td>{{ fighter.weight }}</td>
+        <td>{{ fighter.height }}</td>
+        <td>{{ fighter.BMI }}</td>
+        <td>{{ fighter.BMI_Category }}</td>
+        <td>{{ fighter.MMA_Weight_class }}</td>
         <td>
           <button type="button" class="btn edit" data-tooltip="Éditer" (click)="ouvrirModal(figther)">✏️</button>
           <button type="button" class="btn delete" data-tooltip="Supprimer" >🗑️</button>
