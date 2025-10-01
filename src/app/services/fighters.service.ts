@@ -35,7 +35,4 @@ export class FightersService {
         return this.http.put<IFighter>(`${this.apiUrl}/${fighterId}`, fighter);
     }
 
-    updateFighter (fighter:IFighter) {
-      
-    }
 }
