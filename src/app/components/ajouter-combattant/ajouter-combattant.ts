@@ -25,5 +25,9 @@ export class AjouterCombattant {
       updated_at : "",
   };
 
+  onSubmit () {
+      
+  }
+
   
 }
