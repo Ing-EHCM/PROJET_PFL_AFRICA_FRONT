@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FightersService } from '../../services/fighters.service';
+import { IFighter } from '../../models/fighter';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-ajouter-combattant',
@@ -9,9 +12,9 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './ajouter-combattant.html',
   styleUrl: './ajouter-combattant.css'
 })
-export class AjouterCombattant {
+export class AjouterCombattant implements OnInit {
   
-  newFighter = {
+  newFighter:IFighter = {
       id : 0,
       FirstName : "",
       LastName : "",
@@ -25,8 +28,30 @@ export class AjouterCombattant {
       updated_at : "",
   };
 
+  constructor (private fighterService: FightersService) {}
+
+  ngOnInit(): void {
+      alert(`initialisation ajouter combattant`)
+  }
+
   onSubmit () {
-      
+      this.fighterService.createFighter(this.newFighter).subscribe({
+          next : () => {
+              toast.success(`Un nouveau combattant a été créé avec succès`);
+          },
+
+          error : (err) => {
+              toast.error(`Une errer s'est produite lors de la création : ${err}`);
+          },
+
+          complete : () => {
+              toast.success(`Création d'un combattant terminée avec succès`);
+          }
+
+      });
+
+
+      alert(` ijirtvuiti ${this.newFighter.FirstName}`)
   }
 
   
