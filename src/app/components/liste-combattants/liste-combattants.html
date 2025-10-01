@@ -2,9 +2,17 @@
   <div class="list-combattant">
   <h1>Liste des combattants </h1>
 
-  <input type="text" id="rechercheInput" placeholder="Recherche" (input)="filterTable($event)">
+  @if (isLoading ==true) {
+      <div>Chargement en cours</div>
+  }
 
-  <table id="userTable">
+  @if(error) {
+      <div>erreur :  {{error}}</div>
+  }
+
+  @if (!isLoading && fighters.length>0) {
+    <input type="text" id="rechercheInput" placeholder="Recherche" (input)="filterTable($event)">
+      <table id="userTable">
     <thead>
       <tr>
         <th>ID</th>
@@ -37,34 +45,36 @@
       </tr>
     </tbody>
   </table>
+  }
+  
 
   <!-- MODALE D'ÉDITION -->
 <div class="modal" *ngIf="showModal">
-  <div class="modal-content">
-    <h2>Modifier le combattant</h2>
+      <div class="modal-content">
+        <h2>Modifier le combattant</h2>
 
-    <label>Id :</label>
-    <input type="number" [(ngModel)]="combattantEnEdition.id" />
-    <label>Nom :</label>
-    <input type="text" [(ngModel)]="combattantEnEdition.FirstName" />
+        <label>Id :</label>
+        <input type="number" [(ngModel)]="combattantEnEdition.id" />
+        <label>Nom :</label>
+        <input type="text" [(ngModel)]="combattantEnEdition.FirstName" />
 
-    <label>Prénom :</label>
-    <input type="text" [(ngModel)]="combattantEnEdition.LastName" />
+        <label>Prénom :</label>
+        <input type="text" [(ngModel)]="combattantEnEdition.LastName" />
 
-    <label>Âge :</label>
-    <input type="number" [(ngModel)]="combattantEnEdition.age" />
+        <label>Âge :</label>
+        <input type="number" [(ngModel)]="combattantEnEdition.age" />
 
-    <label>Poids (kg) :</label>
-    <input type="number" [(ngModel)]="combattantEnEdition.weight" />
+        <label>Poids (kg) :</label>
+        <input type="number" [(ngModel)]="combattantEnEdition.weight" />
 
-    <label>Taille (cm) :</label>
-    <input type="number" [(ngModel)]="combattantEnEdition.height" />
+        <label>Taille (cm) :</label>
+        <input type="number" [(ngModel)]="combattantEnEdition.height" />
 
-    <div class="modal-actions">
-      <button class="btn save" (click)="enregistrer()">💾 Enregistrer</button>
-      <button class="btn cancel" (click)="showModal = false">❌ Annuler</button>
-    </div>
-  </div>
+        <div class="modal-actions">
+          <button class="btn save" (click)="enregistrer()">💾 Enregistrer</button>
+          <button class="btn cancel" (click)="showModal = false">❌ Annuler</button>
+        </div>
+      </div>
 
-</div>
+
 </div>

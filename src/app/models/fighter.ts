@@ -1,7 +1,7 @@
 
 export interface IFighter {
 
-    id : number;
+    id ?: number |string;
     FirstName : string;
     LastName : string;
     age : number;

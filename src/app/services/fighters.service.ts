@@ -10,7 +10,7 @@ export class FightersService {
 
     // Déclaration de l'url de l'API
     //private apiUrl = 'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
-    private apiUrl = 'https://crudcrud.com/api/fighter';
+    private apiUrl = 'https://crudcrud.com/api/70c0aacfc6074461b5b6f3917a8a296d/combattants';
 
     // Constructeur qui sera appelé à l'instanciation du service et qui va 
     constructor (private http:HttpClient) {}
@@ -24,8 +24,8 @@ export class FightersService {
     }
 
     createFighter (fighter:IFighter):Observable<IFighter> {
-      const headers = new HttpHeaders({'content-type':'application/json'});
-      return this.http.post<IFighter >(this.apiUrl,fighter,{headers});
+      //const headers = new HttpHeaders({'content-type':'application/json'});
+      return this.http.post<IFighter >(this.apiUrl,fighter);
     }
 
     deleteFighter (fighterId:string|number):Observable<IFighter> {

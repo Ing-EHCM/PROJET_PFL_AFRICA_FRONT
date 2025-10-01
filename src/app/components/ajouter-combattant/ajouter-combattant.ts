@@ -13,9 +13,11 @@ import { toast } from 'ngx-sonner';
   styleUrl: './ajouter-combattant.css'
 })
 export class AjouterCombattant implements OnInit {
+
+    isLoading = true;
   
   newFighter:IFighter = {
-      id : 0,
+      
       FirstName : "",
       LastName : "",
       age : 0,
@@ -31,18 +33,20 @@ export class AjouterCombattant implements OnInit {
   constructor (private fighterService: FightersService) {}
 
   ngOnInit(): void {
-      alert(`initialisation ajouter combattant`)
+      
   }
 
   onSubmit () {
       this.fighterService.createFighter(this.newFighter).subscribe({
           next : () => {
               toast.success(`Un nouveau combattant a été créé avec succès`);
+              this.isLoading = false;
           },
 
           error : (err) => {
-              toast.error(`Une errer s'est produite lors de la création : ${err}`);
-          },
+              toast.error(`Une errer s'est produite lors de la création : ${err} ${this.newFighter.FirstName}`);
+              this.isLoading = false;
+            },
 
           complete : () => {
               toast.success(`Création d'un combattant terminée avec succès`);
@@ -51,7 +55,6 @@ export class AjouterCombattant implements OnInit {
       });
 
 
-      alert(` ijirtvuiti ${this.newFighter.FirstName}`)
   }
 
   
