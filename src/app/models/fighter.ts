@@ -9,7 +9,7 @@ export interface IFighter {
     height : number;
     BMI : number;
     BMI_Category : string;
-    MMA_Weight_class : string
+    MMA_Weight_class : string,
     created_at : string;
     updated_at : string;
 }
