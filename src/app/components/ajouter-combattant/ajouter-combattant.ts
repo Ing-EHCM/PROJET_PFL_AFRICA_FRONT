@@ -10,26 +10,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './ajouter-combattant.css'
 })
 export class AjouterCombattant {
-  nouveauCombattant = {
-    nom: '',
-    prenom: '',
-    age: 0,
-    poids: 0,
-    taille: 0
+  
+  newFighter = {
+      id : 0,
+      FirstName : "",
+      LastName : "",
+      age : 0,
+      weight : 0,
+      height : 0,
+      BMI : 0,
+      BMI_Category : "",
+      MMA_Weight_class : "",
+      created_at : "",
+      updated_at : "",
   };
 
-  onSubmit() {
-    console.log('Nouveau combattant:', this.nouveauCombattant);
-    // Ici vous pourrez ajouter la logique pour sauvegarder le combattant
-    alert('Combattant ajouté avec succès !');
-    
-    // Réinitialiser le formulaire
-    this.nouveauCombattant = {
-      nom: '',
-      prenom: '',
-      age: 0,
-      poids: 0,
-      taille: 0
-    };
-  }
+  
 }
