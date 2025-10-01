@@ -14,10 +14,9 @@ import { toast } from 'ngx-sonner';
 })
 export class AjouterCombattant implements OnInit {
 
-    isLoading = true;
+  isLoading = true;
   
   newFighter:IFighter = {
-      
       FirstName : "",
       LastName : "",
       age : 0,
