@@ -28,27 +28,27 @@ export class AjouterCombattant implements OnInit {
       updated_at : "",
   };
 
-  //constructor (private fighterService: FightersService) {}
+  constructor (private fighterService: FightersService) {}
 
   ngOnInit(): void {
       alert(`initialisation ajouter combattant`)
   }
 
   onSubmit () {
-      // this.fighterService.createFighter(this.newFighter).subscribe({
-      //     next : () => {
-      //         toast.success(`Un nouveau combattant a été créé avec succès`);
-      //     },
+      this.fighterService.createFighter(this.newFighter).subscribe({
+          next : () => {
+              toast.success(`Un nouveau combattant a été créé avec succès`);
+          },
 
-      //     error : (err) => {
-      //         toast.error(`Une errer s'est produite lors de la création : ${err}`);
-      //     },
+          error : (err) => {
+              toast.error(`Une errer s'est produite lors de la création : ${err}`);
+          },
 
-      //     complete : () => {
-      //         toast.success(`Création d'un combattant terminée avec succès`);
-      //     }
+          complete : () => {
+              toast.success(`Création d'un combattant terminée avec succès`);
+          }
 
-      // });
+      });
 
 
       alert(` ijirtvuiti ${this.newFighter.FirstName}`)
