@@ -34,4 +34,8 @@ export class FightersService {
     updateFighter (fighterId:string | number, fighter:IFighter):Observable<IFighter> {
         return this.http.put<IFighter>(`${this.apiUrl}/${fighterId}`, fighter);
     }
+
+    updateFighter (fighter:IFighter) {
+      
+    }
 }
