@@ -24,7 +24,7 @@ export class ListeCombattants implements OnInit{
     // { id: 5, FirstName: 'Paul', LastName: 'Beavogui', age: 20, weight: 75, height: 180 , BMI:23,BMI_Category:"Normale", MMA_Weight_class:"Poids lourd",created_at : "2025-01-01",updated_at : "2025-03-03"}
     
   ];
-figthers: any;
+
     constructor(private fighterService:FightersService) {}
 
     ngOnInit(): void {
@@ -84,21 +84,6 @@ figthers: any;
         })
     }
 
-    // figther:IFighter={
-    //   id : 0,
-    //   FirstName : "",
-    //   LastName : "",
-    //   age : 0,
-    //   weight : 0,
-    //   height : 0,
-    //   BMI : 0,
-    //   BMI_Category : "",
-    //   MMA_Weight_class : "",
-    //   created_at : "",
-    //   updated_at : "",
-    // }
-   
-  
 
   // Données pour la modale
   showModal = false;
