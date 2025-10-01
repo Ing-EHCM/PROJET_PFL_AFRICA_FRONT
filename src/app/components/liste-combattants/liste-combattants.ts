@@ -41,6 +41,7 @@ export class ListeCombattants implements OnInit{
             next: (response)=> {
                 this.fighters = response
                 this.isLoading = false;
+                
             },
 
             error : (err) => {
