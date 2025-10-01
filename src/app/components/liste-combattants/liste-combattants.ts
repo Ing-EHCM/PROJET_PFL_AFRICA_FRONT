@@ -84,19 +84,19 @@ figthers: any;
         })
     }
 
-    figther:IFighter={
-      id : 0,
-      FirstName : "",
-      LastName : "",
-      age : 0,
-      weight : 0,
-      height : 0,
-      BMI : 0,
-      BMI_Category : "",
-      MMA_Weight_class : "",
-      created_at : "",
-      updated_at : "",
-    }
+    // figther:IFighter={
+    //   id : 0,
+    //   FirstName : "",
+    //   LastName : "",
+    //   age : 0,
+    //   weight : 0,
+    //   height : 0,
+    //   BMI : 0,
+    //   BMI_Category : "",
+    //   MMA_Weight_class : "",
+    //   created_at : "",
+    //   updated_at : "",
+    // }
    
   
 
