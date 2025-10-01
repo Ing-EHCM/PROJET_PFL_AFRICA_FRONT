@@ -3,24 +3,24 @@
   
   <form (ngSubmit)="onSubmit()" class="form-container">
     <div class="form-group">
-      <label for="nom">Nom :</label>
+      <label for="FirstName">Prénom :</label>
       <input 
         type="text" 
-        id="nom" 
-        [(ngModel)]="newFighter.nom" 
-        name="nom" 
+        id="FirstName" 
+        [(ngModel)]="newFighter.FirstName" 
+        name="FirstName" 
         required
         class="form-input"
       >
     </div>
 
     <div class="form-group">
-      <label for="prenom">Prénom :</label>
+      <label for="LastName">Nom :</label>
       <input 
         type="text" 
-        id="prenom" 
-        [(ngModel)]="newFighter.prenom" 
-        name="prenom" 
+        id="LastName" 
+        [(ngModel)]="newFighter.LastName" 
+        name="LastName" 
         required
         class="form-input"
       >
@@ -41,12 +41,12 @@
     </div>
 
     <div class="form-group">
-      <label for="poids">Poids (kg) :</label>
+      <label for="weight">Poids (kg) :</label>
       <input 
         type="number" 
-        id="poids" 
-        [(ngModel)]="newFighter.poids" 
-        name="poids" 
+        id="weight" 
+        [(ngModel)]="newFighter.weight" 
+        name="weight" 
         required
         min="1"
         max="200"
@@ -55,15 +55,68 @@
     </div>
 
     <div class="form-group">
-      <label for="taille">Taille (cm) :</label>
+      <label for="height">Taille (cm) :</label>
       <input 
         type="number" 
-        id="taille" 
-        [(ngModel)]="newFighter.taille" 
-        name="taille" 
+        id="height" 
+        [(ngModel)]="newFighter.height" 
+        name="height" 
         required
         min="100"
         max="250"
+        class="form-input"
+      >
+    </div>
+    <div class="form-group">
+      <label for="BMI">BMI :</label>
+      <input 
+        type="number" 
+        id="BMI" 
+        [(ngModel)]="newFighter.BMI" 
+        name="BMI" 
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="BMI_Category">BMI_Category :</label>
+      <input 
+        type="text" 
+        id="BMI_Category" 
+        [(ngModel)]="newFighter.BMI_Category" 
+        name="BMI_Category" 
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="MMA_Weight_class">MMA_Weight_class :</label>
+      <input 
+        type="text" 
+        id="MMA_Weight_class" 
+        [(ngModel)]="newFighter.MMA_Weight_class" 
+        name="MMA_Weight_class" 
+        class="form-input"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="created_at">Date Création :</label>
+      <input 
+        type="text" 
+        id="created_at" 
+        [(ngModel)]="newFighter.created_at" 
+        name="created_at" 
+        class="form-input"
+      >
+    </div>
+    <div class="form-group">
+      <label for="updated_at">Date MAJ :</label>
+      <input 
+        type="text" 
+        id="updated_at" 
+        [(ngModel)]="newFighter.updated_at" 
+        name="updated_at" 
         class="form-input"
       >
     </div>

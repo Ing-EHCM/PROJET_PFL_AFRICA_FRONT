@@ -12,15 +12,15 @@ import { FormsModule } from '@angular/forms';
 export class AjouterCombattant {
   
   newFighter = {
-      id :  0,
-      first_name : "",
-      last_name : "",
+      id : 0,
+      FirstName : "",
+      LastName : "",
       age : 0,
-      weight_kg : 0,
-      height_cm : 0,
-      bmi : 0,
-      bmi_category : "",
-      mma_weight_class : "",
+      weight : 0,
+      height : 0,
+      BMI : 0,
+      BMI_Category : "",
+      MMA_Weight_class : "",
       created_at : "",
       updated_at : "",
   };
