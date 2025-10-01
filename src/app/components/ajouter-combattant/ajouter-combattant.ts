@@ -25,8 +25,5 @@ export class AjouterCombattant {
       updated_at : "",
   };
 
-  onSubmit() {
-    console.log('Nouveau combattant:', this.newFighter);
-    
-  }
+  
 }
