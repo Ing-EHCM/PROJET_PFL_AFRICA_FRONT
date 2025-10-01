@@ -17,7 +17,6 @@ export class AjouterCombattant implements OnInit {
     isLoading = true;
   
   newFighter:IFighter = {
-      
       FirstName : "",
       LastName : "",
       age : 0,

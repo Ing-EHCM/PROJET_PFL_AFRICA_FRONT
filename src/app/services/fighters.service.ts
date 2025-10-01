@@ -10,7 +10,7 @@ export class FightersService {
 
     // Déclaration de l'url de l'API
     //private apiUrl = 'https://d99f836x-8000.euw.devtunnels.ms/api/fighters';
-    private apiUrl = 'https://crudcrud.com/api/70c0aacfc6074461b5b6f3917a8a296d/combattants';
+    private apiUrl = '/api/combattants';
 
     // Constructeur qui sera appelé à l'instanciation du service et qui va 
     constructor (private http:HttpClient) {}
